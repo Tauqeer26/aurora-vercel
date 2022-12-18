@@ -1,0 +1,122 @@
+{% extends 'headerPage.html' %}
+
+{% block content%}
+
+    
+<style>
+
+   a:link {color: black;}
+   a:visited {color: black;}
+   a:hover {color: #BE0F34;}
+
+   .butt {
+   border: 1px outset black;
+   background-color: white;
+   height:60px;
+   width:200px;
+   cursor:pointer;
+}
+
+.butt:hover {
+   background-color: #BE0F34;
+   color:white;
+}
+.btn{
+   border: 1px outset black;
+   background-color: white;
+   height:50px;
+   width:200px;
+   cursor:pointer;
+}
+.btn:hover {
+   background-color: #BE0F34;
+   color:white;
+}
+</style>
+    
+    <br>
+   
+    <form method="post" enctype="multipart/form-data" action="predictImage">
+  
+ {% csrf_token %}
+ <!-- <div class="col-md-4 col-sm-4"><label for="fname">Please Upload Your data:</label> </div> <input name="filePath" type="file"><br><br>-->
+ <br>
+ <div class="row">
+    <div class="col-6 px-4">
+       <p class="h6 px-4 mx-4">
+          Drop your image below so we can recommend you the best of all products.
+       </p>
+       <div class="mb-4 px-4">
+          <label for="formFile" class="form-label"></label>
+          <input class="form-control" type="file" id="inputFile" name="filePath">
+          <h5 class="mb-3 p-4" style="color: #BE0F34">{{predictedLabel|linebreaksbr}} </h5>
+          
+          
+          
+       </div>
+
+
+      <!-- <form >
+         <h3>Does the Job Role matches according to employee: </h3>
+         <select name="Job" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+             <option selected>Open this select menu</option>
+             <option value="1">Job Role matches</option>
+             <option value="0">Job Role does not match</option>
+         </select>
+         <br><br>
+         <input type="submit" value="Submit">
+       </form>
+       {% if a == 100 %}
+       <h3>Hoja bhai</h3>
+       {% endif %}-->
+
+       
+    </div>
+    <div class="col-6 mb-3 px-4">
+      <div class="image-preview" id="imagePreview">
+         <img src="" alt="Image Preview" class="image-preview__image">
+         <span class="image-preview__default-text">Image Preview</span>
+      </div>
+      <button type="submit" class="btn" id="btn-hide">SUBMIT</button>
+   </div>  
+ </div> 
+
+ <!--<input type="submit" value="Submit" ></div>-->
+
+ <!-- <h2>This Classified Image is  {{predictedLabel}} </h2> -->
+
+ 
+</form>
+
+<form method="post" action="index" >
+   <div class="row">
+      <div class="col-6 px-5">
+   {% csrf_token %}
+   <label for="Skin">Choose to obtain the greatest products available. </label>
+   
+   <select name="Skin" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+      <option selected >Choose your Skin Condition</option>
+      <option value="4">Reduce Breakouts and Scars</option>
+      <option value="3">Reduce Fine Lines, Wrinkles and Hyperpigmentation</option>
+      <option value="2">Reduce Blackheads, Minimise Pores</option>
+      <option value="1">Improve Texture, Brighten Skin, Plump Skin improve Hyderation</option>
+      <option value="0">Target Dryness and Patches and Reduce Redness</option>
+  </select>
+   <input type="submit" value="Submit" class="butt">
+   <hr>
+   <!-- <h5 style="color:rgb(0, 0, 0);" class="mb-3 p-4"><a href="https://www.auroraorganics.co/shop/">{{content|linebreaksbr}}</a> </h5> -->
+   {% for key, value in context.items %}
+   <h5 style="color:rgb(0, 0, 0);" class="mb-3 p-4"><a href="https://www.auroraorganics.co/product/{{value}}">{{key}}</a></h5><hr>
+  
+   {% endfor %} 
+
+</form>
+</div>
+</div>
+<br>
+
+
+
+
+
+{% endblock %}
