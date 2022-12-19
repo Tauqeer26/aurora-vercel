@@ -25,7 +25,7 @@ SECRET_KEY = 'i(+%se(h0ozh7v8e=p+s*yu*ijb66pvqt2h(i9upcyald-_a57'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['skin-au.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
